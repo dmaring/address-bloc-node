@@ -22,10 +22,11 @@ describe("ContactController", () => {
   describe("#addContact()", () => {
     it("should add a single contact into the book", (done) => {
       // addContact (sequelize) will return a promise
-      this.book.addContact("Alice", "001-101-1010")
+      this.book.addContact("Alice", "001-101-1010", "alice@aol.com")
       .then((contact) => {
           expect(contact.name).toBe("Alice");
           expect(contact.phone).toBe("001-101-1010");
+          expect(contact.email).toBe("alice@aol.com");
           // done() tells jasmine this instance test is over async call completed
           done();
       })
